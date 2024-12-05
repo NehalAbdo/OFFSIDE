@@ -1,0 +1,79 @@
+﻿@using OFF.PL.ViewModels
+@model PlayerRegisterVM
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Details</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+          integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/css/detailsplayer.css"/>
+</head>
+<body>
+    <div class="profile">
+        <img src="~/Files/Pics/@Model.ImageName" alt="profile" />
+        <div class="right">
+            <div class="header">
+                <h1>@Model.FName profile</h1>
+            </div>
+            <hr />
+            <div id="form">
+                <div class="input">
+                    <p>Name</p>
+                    <p class="box">@Html.DisplayFor(model => model.userName)</p>
+                </div>
+                <div class="input">
+                    <p>E-mail</p>
+                    <p class="box">@Html.DisplayFor(model => model.Email)</p>
+                </div>
+                <div class="input">
+                    <p>Phone</p>
+                    <p class="box">@Html.DisplayFor(model => model.Phone)</p>
+                </div>
+                <div class="input">
+                    <p>Gender</p>
+                    <p class="box">@Html.DisplayFor(model => model.Gender)</p>
+                </div>
+                <div class="input">
+                    <p>Position</p>
+                    <p class="box">@Html.DisplayFor(model => model.Position)</p>
+                </div>
+                <div class="input">
+                    <p>Birthdate</p>
+                    <p class="box">@Html.DisplayFor(model => model.BirthDate)</p>
+                </div>
+                <div class="input">
+                    <p>Nationality</p>
+                    <p class="box">@Html.DisplayFor(model => model.Nationality)</p>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="profile">
+        <div class="right">
+            <div class="header">
+                <h1>National ID</h1>
+
+            </div>
+            <hr />
+            <div id="form">
+                <img src="~/Files/Pics/@Model.NationalIDName" alt="profile" />
+
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

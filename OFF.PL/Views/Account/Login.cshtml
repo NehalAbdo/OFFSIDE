@@ -1,0 +1,49 @@
+﻿@using OFF.PL.ViewModels
+
+@{
+    Layout = null;
+}
+@model LoginVM
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Login form</title>
+    <link rel="stylesheet" href="~/css/NLogin.css">
+    
+</head>
+<body>
+    <div class="wrapper">
+        <form asp-action="Login" method="post">
+            <div asp-validation-summary="All"></div>
+            <h1>Login</h1>
+            <div class="input-box">
+                <input asp-for="Email" class="form-control" placeholder="Email" >
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="input-box">
+                <input asp-for="Password" class="form-control" placeholder="Password" >
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="remember-forgot">
+               @*  <label> 
+                    <input type="checkbox">Remember Me
+                </label> <br /> <br />*@
+                <a asp-action="ForgetPassword">Forgot Password?</a> <br /> <br /> 
+               
+               <a asp-controller="Home" asp-action="Join">Don't have an account ?</a>
+            </div>
+            <button type="submit" class="btn">Login</button>
+    </form>
+    </div>
+    @section Scripts {
+        <script src="~/lib/jquery/jquery.min.js"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    }
+</body>
+
+</html>

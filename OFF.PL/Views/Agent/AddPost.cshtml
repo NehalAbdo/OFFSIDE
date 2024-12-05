@@ -1,0 +1,51 @@
+﻿@using OFF.PL.ViewModels
+@using System.Security.Claims
+@model PostVM
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OFFSIDE</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+          integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/css/Prof player.css" />
+</head>
+<body>
+
+    <div class="profile">
+        <div class="right">
+            <h1 style="margin-bottom: 40px">Add Post</h1>
+            <form asp-controller="Agent" asp-action="AddPost" method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="All"></div>
+
+                <div id="form">
+                    <div class="input">
+                        <label for="Content">Write Something</label>
+                        <input class="input-box" type="text" id="Content" name="Content" placeholder="Add Caption" asp-for="Content">
+                    </div>
+                    <div class="input">
+                        <label for="Image">Upload Image</label>
+                        <input class="file" type="file" id="Image" name="Image" asp-for="Image">
+                    </div>
+                    <div class="input">
+                        <label for="Video">Upload Video</label>
+                        <input class="file" type="file" id="Video" name="Video" asp-for="Video">
+                    </div>
+                    <input type="hidden" asp-for="AppUserId" value="@User.FindFirstValue(ClaimTypes.NameIdentifier)" />
+
+                    <input type="submit" class="upload" value="Upload Post">
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

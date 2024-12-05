@@ -1,0 +1,94 @@
+﻿
+@using OFF.PL.ViewModels
+@using System.Security.Claims
+@model SubscriptionVM
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/cardtest.css">
+    @*     <script src="ind4js.js"></script>
+    *@
+</head>
+<body>
+    <div class="container">
+        <div class="subcontainer">
+            <div class="left">
+                <div class="product-container">
+                    <div class="detail">
+                        <p class="brand"></p>
+                        <h2 class="watchName">Subscribe to our plan</h2>
+                    </div>
+                    <h2 style="text-align: center;">Monthly plan </h2>
+                    <br>
+                    <br>
+                    <h3 style="margin-left: 40px;">Amount ex vat= 700LE</h3>
+                    <br>
+                    <br>
+                    <h3 style="margin-left: 40px;">Vat = 0</h3>
+                    <br>
+                    <br>
+                    <h3 style="margin-left: 40px;">Amount inc vat = 700LE</h3>
+
+                    <!-- dot pagination  -->
+                    <div class="dots">
+                        <a class="pagination" onclick="currentSlide(1)"></a>
+                        <a class="pagination" onclick="currentSlide(2)"></a>
+                        <a class="pagination" onclick="currentSlide(3)"></a>
+                    </div>
+                    <!-- dot pagination  -->
+                </div>
+            </div>
+
+            <div class="right">
+                <div class="checkout-container">
+                    <p>Checkout</p>
+                    <form id="payment-form" asp-controller="Payment" asp-action="Subscribe" method="post" role="form">
+                        <div asp-validation-summary="All"></div>
+
+                        <div class="field">
+                            <input type="text" id="CardNumber" name="CardNumber" placeholder="Enter card number" required>
+                            <span asp-validation-for="CardNumber" class="text-danger"></span>
+                        </div>
+                        <div class="field">
+                            <input type="text" id="CardholderName" name="CardholderName" placeholder="Cardholder Name" required>
+                            <span asp-validation-for="CardholderName" class="text-danger"></span>
+                        </div>
+                        <div class="field last_field">
+                            <div class="item">
+                                <input type="text" id="CardExpiryDate" name="CardExpiryDate" placeholder="Card Expiry Date (MM/YY)" required>
+                                <span asp-validation-for="CardExpiryDate" class="text-danger"></span>
+                            </div>
+                            <div class="item">
+                                <input type="text" id="CVV" name="CVV" placeholder="CVV" required>
+                                <span asp-validation-for="CVV" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <input type="hidden" id="SubscriptionType" name="SubscriptionType" value="OneMonth">
+                        <input type="hidden" id="AgentId" name="AgentId" value="@User.FindFirstValue(ClaimTypes.NameIdentifier)" />
+                        <button id="submit-button" type="submit" class="btn">Subscribe</button>
+                        <div id="message">Your account is under review <br> We will sent you an email once confirmed <br> THANK YOU !</div>
+                        <script src="~/js/Script.js"></script>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    @section Scripts {
+        <script src="~/lib/jquery/jquery.min.js"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    }
+ </body>
+</html>

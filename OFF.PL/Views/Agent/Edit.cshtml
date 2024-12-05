@@ -1,0 +1,171 @@
+﻿@using OFF.PL.ViewModels
+@using System.Security.Claims
+@model EditingVM
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+          integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/css/Prof player.css" />
+</head>
+<body>
+    <div class="profile">
+        <h1>Edit Profile</h1>
+        <div class="right">
+            <form method="post" asp-action="Edit" enctype="multipart/form-data">
+                <div asp-validation-summary="All"></div>
+
+                <input type="hidden" name="Id" value="@Model.Id" />
+
+                <div id="form">
+                    <div class="input">
+                        <label for="userName">Name</label>
+                        <input class="input-box" type="text" id="userName" name="userName" placeholder="Enter your Name" value="@Model.userName" />
+                    </div>
+                    <div class="input">
+                        <label for="Email">E-mail</label>
+                        <input type="email" id="Email" name="Email" value="@Model.Email" />
+                    </div>
+                    <div class="input">
+                        <label for="Phone">Number</label>
+                        <input class="input-box" type="text" id="Phone" name="Phone" placeholder="Enter your number" value="@Model.Phone" />
+                    </div>
+
+                    <div class="input">
+                        <label for="Nationality">Nationality</label>
+                        <select id="Nationality" name="Nationality">
+                            <option value="Afghan">Afghan</option>
+                            <option value="Albanian">Albanian</option>
+                            <option value="Algerian">Algerian</option>
+                            <option value="American">American</option>
+                            <option value="Andorran">Andorran</option>
+                            <option value="Angolan">Angolan</option>
+                            <option value="Anguillan">Anguillan</option>
+                            <option value="Argentine">Argentine</option>
+                            <option value="Armenian">Armenian</option>
+                            <option value="Australian">Australian</option>
+                            <option value="Austrian">Austrian</option>
+                            <option value="Azerbaijani">Azerbaijani</option>
+                            <option value="Bahraini">Bahraini</option>
+                            <option value="Bangladeshi">Bangladeshi</option>
+                            <option value="Belgian">Belgian</option>
+                            <option value="Bulgarian">Bulgarian</option>
+                            <option value="Brazilian">Brazilian</option>
+                            <option value="Cambodian">Cambodian</option>
+                            <option value="Canadian">Canadian</option>
+                            <option value="Chinese">Chinese</option>
+                            <option value="Colombian">Colombian</option>
+                            <option value="Cuban">Cuban</option>
+                            <option value="Chilean">Chilean</option>
+                            <option value="Egyptian">Egyptian</option>
+                            <option value="Emirati">Emirati</option>
+                            <option value="Ethiopian">Ethiopian</option>
+                            <option value="Filipino">Filipino</option>
+                            <option value="French">French</option>
+                            <option value="German">German</option>
+                            <option value="Ghanaian">Ghanaian</option>
+                            <option value="Greek">Greek</option>
+                            <option value="Indonesian">Indonesian</option>
+                            <option value="Iranian">Iranian</option>
+                            <option value="Iraqi">Iraqi</option>
+                            <option value="Icelandic">Icelandic</option>
+                            <option value="Italian">Italian</option>
+                            <option value="Irish">Irish</option>
+                            <option value="Indian">Indian</option>
+                            <option value="Jamaican">Jamaican</option>
+                            <option value="Japanese">Japanese</option>
+                            <option value="Jordanian">Jordanian</option>
+                            <option value="Kuwaiti">Kuwaiti</option>
+                            <option value="Kenyan">Kenyan</option>
+                            <option value="Kazakh">Kazakh</option>
+                            <option value="Kosovan">Kosovan</option>
+                            <option value="Lebanese">Lebanese</option>
+                            <option value="Liberian">Liberian</option>
+                            <option value="Libyan">Libyan</option>
+                            <option value="Macanese">Macanese</option>
+                            <option value="Macedonian">Macedonian</option>
+                            <option value="Malagasy">Malagasy</option>
+                            <option value="Malawian">Malawian</option>
+                            <option value="Malaysian">Malaysian</option>
+                            <option value="Maldivian">Maldivian</option>
+                            <option value="Malian">Malian</option>
+                            <option value="Mexican">Mexican</option>
+                            <option value="Moroccan">Moroccan</option>
+                            <option value="Mozambican">Mozambican</option>
+                            <option value="Namibian">Namibian</option>
+                            <option value="Nigerian">Nigerian</option>
+                            <option value="North Korean">North Korean</option>
+                            <option value="Northern Irish">Northern Irish</option>
+                            <option value="Norwegian">Norwegian</option>
+                            <option value="Pakistani">Pakistani</option>
+                            <option value="Palestinian">Palestinian</option>
+                            <option value="Panamanian">Panamanian</option>
+                            <option value="Puerto Rican">Puerto Rican</option>
+                            <option value="Qatari">Qatari</option>
+                            <option value="Romanian">Romanian</option>
+                            <option value="Russian">Russian</option>
+                            <option value="Rwandan">Rwandan</option>
+                            <option value="Saudi Arabian">Saudi Arabian</option>
+                            <option value="Scottish">Scottish</option>
+                            <option value="Serbian">Serbian</option>
+                            <option value="Singaporean">Singaporean</option>
+                            <option value="Slovak">Slovak</option>
+                            <option value="Slovenian">Slovenian</option>
+                            <option value="Somali">Somali</option>
+                            <option value="South African">South African</option>
+                            <option value="South Korean">South Korean</option>
+                            <option value="South Sudanese">South Sudanese</option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="Sudanese">Sudanese</option>
+                            <option value="Swedish">Swedish</option>
+                            <option value="Syrian">Syrian</option>
+                            <option value="Tanzanian">Tanzanian</option>
+                            <option value="Tunisian">Tunisian</option>
+                            <option value="Turkish">Turkish</option>
+                            <option value="Ukrainian">Ukrainian</option>
+                            <option value="Vietnamese">Vietnamese</option>
+                            <option value="Yemeni">Yemeni</option>
+                            <option value="Zambian">Zambian</option>
+                            <option value="Zimbabwean">Zimbabwean</option>
+                        </select>
+                        <script>
+                            document.addEventListener("DOMContentLoaded", function () {
+                                var nationalitySelect = document.getElementById("Nationality");
+
+                                var nationality = "@Model.Nationality";
+
+                               
+
+                                // Set selected option for Nationality
+                                for (var j = 0; j < nationalitySelect.options.length; j++) {
+                                    if (nationalitySelect.options[j].value === nationality) {
+                                        nationalitySelect.options[j].selected = true;
+                                        break;
+                                    }
+                                }
+                            });
+                        </script>
+                    </div>
+                    <div class="input">
+                        <label for="Image">Profile Picture</label>
+                        <input type="file" id="Image" name="Image" accept="image/*" />
+                    </div>
+                </div>
+                @*                 <input type="hidden" asp-for="AppUserId" value="@User.FindFirstValue(ClaimTypes.NameIdentifier)" />
+                *@
+                <input type="submit" value="Submit" class="edit" />
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>

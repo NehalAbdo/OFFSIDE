@@ -1,0 +1,53 @@
+﻿
+@{
+    Layout = null;
+}
+
+@using OFF.PL.ViewModels
+@model PostVM
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="~/css/post.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Edit post </h1>
+        <form asp-controller="Admin" asp-action="EditPost" enctype="multipart/form-data">
+            <div asp-validation-summary="All"></div>
+
+            <div class="form-group">
+                <label for="Content">Write Something:</label>
+                <input type="text" id="Content" name="Content" asp-for="Content" required>
+            </div>
+            <div class="form-group">
+                <div class="input-box">
+                    <label for="fileInput" class="custom-file-label">Upload Image</label>
+
+                    <input type="file" id="Image" class="custom-file-input" asp-for="Image" />
+                </div>
+                <div class="input-box">
+                    <label for="fileInput" class="custom-file-label">Upload Video</label>
+
+                    <input type="file" id="Video" class="custom-file-input" asp-for="Video" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+
+        </form>
+        @section Scripts {
+            <script src="~/lib/jquery/jquery.min.js"></script>
+            <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+            <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+        }
+    </div>
+</body>
+</html>

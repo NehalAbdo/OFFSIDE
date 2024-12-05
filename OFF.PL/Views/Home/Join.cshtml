@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Join";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OFFSIDE</title>
+    <link rel="stylesheet" href="~/css/Join.css" />
+</head>
+<body>
+    <div class="banner">
+        <div class="navbar">
+            <img src="~/Images/asfar 2.png" class="logo">
+            <ul>
+
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Home" asp-action="News">News</a></li>
+                <li><a asp-controller="Home" asp-action="AllPlayer">Players</a></li>
+                <li><a asp-controller="Home" asp-action="AllAgent">Custodians</a></li>
+                <li><a asp-controller="Home" asp-action="AboutUs">About Us</a></li>
+            </ul>
+        </div>
+        <div>
+            <a asp-area="" asp-controller="Account" asp-action="PlayerRegister"><button type="button"><span></span>As a Player </button> </a>
+            <a asp-area="" asp-controller="Account" asp-action="AgentRegister"><button type="button"><span></span> As a Custodian </button></a>
+        </div> 
+    </div>
+</body>
+</html>

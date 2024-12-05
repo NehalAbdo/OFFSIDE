@@ -1,0 +1,139 @@
+﻿@using OFF.PL.ViewModels
+@model IEnumerable<PlayerRegisterVM>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>All players</title>
+    <link rel="stylesheet" href="~/css/allagents.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+</head>
+<body>
+    <div class="main-content">
+        <header>
+            <div class="header-content">
+
+                <img class="logo" src="~/Images/zeti.jpg" alt="logo">
+                <div class="header-menu">
+
+                    <ul>
+                        <br>
+
+                        <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li><a asp-controller="Home" asp-action="News">News</a></li>
+                        <li><a asp-controller="Home" asp-action="AllPlayer">Players</a></li>
+                        <li><a asp-controller="Home" asp-action="AllAgent">Custodians</a></li>
+                        <li><a asp-controller="Home" asp-action="AboutUs">About Us</a></li>
+                        @* <div class="dropdown">
+                            <button class="dropbtn"><span class="las la-bars"></span></button>
+                            <div class="dropdown-content">
+                                <a href="#">Profile</a>
+                                <a href="#">Logout</a>
+                            </div> *@
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <main>
+           <div class="page-content">
+@*                 <form method="get" action="@Url.Action("AllPlayer", "Home")"> 
+ *@                    <div class="records table-responsive">
+                        <div class="record-header">
+                            <form method="get" action="@Url.Action("AllPlayer", "Home")">
+
+                                <div class="add">
+                                <span></span>
+                                <select name="age" id="age" onchange="this.form.submit()">
+                                    <option value="">Age</option>
+                                    <option value="10-15">10-15</option>
+                                    <option value="15-20">15-20</option>
+                                    <option value="20-25">20-25</option>
+                                    <option value="25-30">25-30</option>
+                                    <option value="30-35">30-35</option>
+                                    <option value="35-40">35-40</option>
+                                    <option value="Above 40">Above 40</option>
+                                </select>
+                                <select name="position" id="position" onchange="this.form.submit()">
+                                    <option value="">Position</option>
+                                    <option value="Right fullback">Right fullback</option>
+                                    <option value="Right centerback">Right centerback</option>
+                                    <option value="Left centerback">Left centerback</option>
+                                    <option value="Left fullback">Left fullback</option>
+                                    <option value="Right midfielder">Right midfielder</option>
+                                    <option value="Central defensive midfielder">Central defensive midfielder</option>
+                                    <option value="Central attacking midfielder">Central attacking midfielder</option>
+                                    <option value="Playmaker, central midfielder">Playmaker, central midfielder</option>
+                                    <option value="Left midfielder">Left midfielder</option>
+                                    <option value="Right-winger">Right-winger</option>
+                                    <option value="Striker">Striker</option>
+                                    <option value="Centre forward">Centre forward (target man)</option>
+                                    <option value="Left - winger">Left - winger</option>
+                                    <option value="Goalkeeper">Goalkeeper</option>
+                                    <option value="Box2Box">Box2Box midfielder</option>
+                                    <option value="Libero">Libero</option>
+                                </select>
+                            </div>
+                            </form>
+                            @* <div class="browse">
+                                <input type="search" placeholder="Search" class="record-search">
+                            </div> *@
+                        </div>
+                        </
+                        <div>
+                            
+                        @if (Model.Any())
+                        {
+                            <table width="100%">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th><span class=""></span></th>
+                                        <th><span class=""></span></th>
+                                        <th><span class=""></span></th>
+                                        <th><span class=""></span></th>
+                                        <th><span class=""></span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var user in Model)
+                                    {
+                                        <tr>
+                                            <td></td>
+                                            <td>
+                                                <div class="client">
+                                                    <div class="client-img bg-img">
+                                                        <img src="~/Files/Pics/@user.ImageName" width="97" height="97" class="img-fluid rounded-circle" alt="profile" />
+                                                    </div>
+                                                    <div class="client-info">
+                                                        <h4>@user.userName</h4>
+                                                        <small></small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>
+                                                <div class="actions">
+                                                    <a asp-controller="Player" asp-action="ViewProf" asp-route-id="@user.Id">
+                                                        <button id="bottone5">View</button>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

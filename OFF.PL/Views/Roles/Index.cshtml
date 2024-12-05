@@ -1,0 +1,65 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using OFF.PL.ViewModels
+
+@{
+    Layout = "_Layout";
+}
+
+@model IEnumerable<IdentityRole>
+@{
+    ViewData["Title"] = "Index";
+}
+
+        <main>
+            <div class="page-header">
+                <a href="">   <h1>All roles</h1></a>
+                <small></small>
+            </div>
+
+            <div class="page-content">
+
+                <div class="records table-responsive">
+                    <div class="record-header">
+                        <partial name="_addRolePartialView" model="new RoleFormVM()" />
+                    </div>
+
+                    <div>
+                        @if (Model.Count() > 0)
+                        {
+                            <table width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>@Html.DisplayNameFor(role => role.Id)</th>
+                                        <th>@Html.DisplayNameFor(role => role.Name)</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.Id</td>
+                                            <td>@item.Name</td>
+                                            <td>
+                                                <a id="bottone5" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                                                <a id="bottone5" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                        @* else
+                        {
+                            <div class="alert-warning">
+                                <h3>No Records Found :( </h3>
+                            </div>
+                        } *@
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>

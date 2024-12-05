@@ -1,0 +1,79 @@
+﻿@using OFF.PL.ViewModels
+@model List<PostVM>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OFFSIDE</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+          integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/css/events.css" />
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@Html5DateRenderingMode/dist/min/dropzone.min.css" type="text/css" />
+</head>
+<body>
+    <div class="header-content">
+
+        <div class="header-menu">
+
+            <img class="logo" src="~/Images/zeti.jpg" alt="logo">
+            <ul>
+                <br>
+
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Home" asp-action="News">News</a></li>
+                <li><a asp-controller="Home" asp-action="AllPlayer">Players</a></li>
+                <li><a asp-controller="Home" asp-action="AllAgent">Custodians</a></li>
+                <li><a asp-controller="Home" asp-action="AboutUs">About Us</a></li>
+            </ul>
+        </div>
+    </div>
+       
+   
+
+    <div class="profile-container">
+
+        <div class="right">
+            <div class="head">
+                <h2>News</h2>
+            </div>
+            @foreach (var post in Model)
+            {
+                <div class="post">
+            
+            <div class="caption">
+            <p>
+            @post.Content
+            </p>
+            <p class="created-at" style= "display:none">Posted on: @post.CreatedAt.ToString()</p>
+
+            </div>
+
+            @if (!string.IsNullOrEmpty(post.VideoName))
+            {
+            <video class="post-video" controls>
+           
+            <source src="@Url.Content("~/Files/Video/" + post.VideoName)" type="video/mp4">
+
+            Your browser does not support the video tag.
+            </video>
+            }
+            else if (!string.IsNullOrEmpty(post.ImageName))
+            {
+                        <img class="post-img" src="@Url.Content("~/Files/Pics/" + post.ImageName)" alt="post" />
+                    }
+            </div>
+            }
+            
+        </div>
+    </div>
+    
+</body>
+</html>

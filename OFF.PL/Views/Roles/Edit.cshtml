@@ -1,0 +1,26 @@
+﻿@using OFF.PL.ViewModels
+
+@{
+    Layout = "_Layout";
+}
+@model RoleVM
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<form method="post" asp-action="Edit"  >
+    <input asp-for="Id" class="form-control" hidden />
+    <div class="add">
+        <label asp-for="Name" class="form-control"></label>
+        <input asp-for="Name" class="form-control" />
+        <button class="btn btn-success m-2" type="submit">save</button>
+        <a class="btn btn-secondary" asp-action="Index">Back To List</a>
+    </div>
+    
+       
+    
+</form>
+
+

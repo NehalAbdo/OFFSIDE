@@ -1,0 +1,171 @@
+/* Import Google font - Poppins */ 
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"); 
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+  font-family: "Poppins", sans-serif; 
+} 
+body { 
+  min-height: 100vh; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  padding: 20px; 
+ 
+  background-image: linear-gradient(rgba(50, 47, 47, 0.75),rgba(12, 7, 85, 0.75)),url(../Images/Sign\ up.jpeg); 
+  background-size: cover; 
+  background-position: center; 
+} 
+.fa-asterisk{
+  /* margin-bottom: 10px!important; */
+  font-size: 9px !important;
+  color: firebrick !important;
+}
+
+.container { 
+    background: rgba(255, 255, 255, 0.2); /* Adjust the last value for transparency */ 
+    padding: 20px; 
+    border-radius: 10px; 
+    backdrop-filter: blur(10px); /* This adds the frosted glass effect */ 
+  position: relative; 
+  max-width: 710px; 
+  width: 100%; 
+  /* background: #fff; */ 
+  padding: 25px; 
+  border-radius: 8px; 
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); 
+} 
+.container header { 
+  font-size: 1.5rem; 
+  color: #e5d2b8; 
+  font-weight: 500; 
+  text-align: center; 
+} 
+.container .form { 
+  margin-top: 30px; 
+} 
+.form .input-box { 
+  width: 100%; 
+  margin-top: 20px; 
+} 
+.input-box label { 
+  color: #e5d2b8; 
+} 
+.form :where(.input-box input, .select-box) { 
+  position: relative; 
+  height: 50px; 
+  width: 99%; 
+  outline: none; 
+  font-size: 1rem; 
+  color: #707070;
+  margin-top: 8px; 
+  border: 1px solid #ddd; 
+  border-radius: 6px; 
+  padding: 0 ; 
+} 
+.specialAsterisk{
+  position: absolute;
+  margin-left: 0.5rem;
+  margin-top: 0.2rem;
+}
+.input-box input:focus { 
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1); 
+} 
+.form .column { 
+  display: flex; 
+  column-gap: 15px; 
+} 
+.form .gender-box { 
+  margin-top: 20px; 
+}
+.gender-box h3 {
+    color: #e5d2b8;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 8px;
+} 
+.form :where(.gender-option, .gender) { 
+  display: flex; 
+  align-items: center; 
+  column-gap: 50px; 
+  flex-wrap: wrap; 
+} 
+.form .gender { 
+  column-gap: 5px; 
+} 
+.gender input { 
+  accent-color: rgb(6, 42, 9); 
+} 
+.form :where(.gender input, .gender label) { 
+  cursor: pointer; 
+} 
+.gender label { 
+  color: #faeda2; 
+} 
+.address :where(input, .select-box) { 
+  margin-top: 15px; 
+} 
+.select-box select { 
+  height: 100%; 
+  width: 100%; 
+  outline: none; 
+  border: none; 
+  color: #707070; 
+  font-size: 1rem; 
+} 
+.form button { 
+  height: 55px; 
+  width: 100%; 
+  color: #e5d2b8; 
+  font-size: 1rem; 
+  font-weight: 400; 
+  margin-top: 30px; 
+  border: none; 
+  cursor: pointer; 
+  transition: all 0.2s ease; 
+  background: #809671; 
+} 
+.form button:hover { 
+  background: #b3b792; 
+} 
+ 
+/*Responsive*/ 
+ 
+@media screen and (max-width: 500px) { 
+  .form .column { 
+    flex-wrap: wrap; 
+  } 
+  .form :where(.gender-option, .gender) { 
+    row-gap: 15px; 
+  } 
+} 
+.custom-file-label::after { 
+  content: 'Upload your photo'; 
+  display: block; 
+  overflow: hidden; 
+  white-space: nowrap; 
+  text-overflow: ellipsis; 
+} 
+ 
+.custom-file-input { 
+  opacity: 0; 
+  position: absolute; 
+  z-index: -1; 
+} 
+.custom-fille-label::after { 
+  content: 'National ID'; 
+  display: block; 
+  overflow: hidden; 
+  white-space: nowrap; 
+  text-overflow: ellipsis; 
+} 
+ 
+.custom-fille-input { 
+  opacity: 0; 
+  position: absolute; 
+  z-index: -1; 
+} 
+.national{ 
+  padding: 0; 
+}

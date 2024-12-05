@@ -1,0 +1,70 @@
+﻿@using OFF.PL.ViewModels
+
+@model PlayerExperienceVM
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OFFSIDE</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+          integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/css/Prof player.css" />
+</head>
+<body>
+
+    <div class="profile">
+        <div class="right">
+            <h1 style="margin-bottom: 40px">Complete Profile</h1>
+            <div id="form">
+            <form asp-controller="Player" asp-action="AddExperience" method="post" enctype="multipart/form-data">
+                    <div asp-validation-summary="All"></div>
+
+                <div class="input">
+                        <p>Experience</p>
+                    <input class="input-box"
+                           type="text"
+                           id="text"
+                           placeholder="Add Experience"
+                           asp-for="Experience"
+                           />
+                </div>
+                <div class="input">
+                    <p>Height</p>
+                    <input class="input-box"
+                           type="text"
+                           id="height"
+                           placeholder="Enter Your Height"
+                           asp-for="Height" />
+                </div>
+                <div class="input">
+                    <p>Weight</p>
+                    <input class="input-box"
+                           type="text"
+                           id="weight"
+                           placeholder="Enter Your Weight"
+                            asp-for="Weight" />
+                </div>
+                <div class="input">
+                   @*  <p>Union ID</p>
+                    <input class="file" class="file" type="file" asp-for="FootballCard" /> *@
+                    <input type="submit" class="upload" value="Submit" />
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    @section Scripts {
+        <script src="~/lib/jquery/jquery.min.js"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    }
+</body>
+</html>

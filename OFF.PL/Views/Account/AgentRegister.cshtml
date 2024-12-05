@@ -1,0 +1,217 @@
+﻿@using OFF.PL.ViewModels
+
+@{
+    Layout = null;
+}
+@model AgentRegisterVM
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="~/css/signup agent.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <section class="container">
+        <header>Sign Up</header>
+        <form asp-action="AgentRegister" method="post" class="form" enctype="multipart/form-data">
+            <div asp-validation-summary="All"></div>
+            <div class="column">
+                <div class="input-box">
+                    <label>First Name</label> <i title="Must fill the data" class="fas fa-asterisk"></i>
+                    <input type="text" id="FName" asp-for="FName" required="">
+                    <span asp-validation-for="FName" class="text-danger"></span>
+
+                </div>
+                <div class="input-box">
+                    <label>
+                        Last Name
+                    </label> <i title="Must fill the data" class="fas fa-asterisk"></i>
+                    <input type="text" id="LName" asp-for="LName" required="">
+                    <span asp-validation-for="LName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="input-box">
+                <label>
+                    Email Address
+                </label> <i title="Must fill the data" class="fas fa-asterisk"></i>
+                <input type="email" id="Email" asp-for="Email" required="">
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="column">
+                <div class="input-box">
+                    <label>Password</label>
+                    <i class="fas fa-asterisk"></i>
+                    <input type="password" id="Password" asp-for="Password" required="">
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label>Confirm Password</label>
+                    <i class="fas fa-asterisk"></i>
+                    <input type="password" id="ConfirmPassword" asp-for="ConfirmPassword" required="">
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="column">
+                <div class="input-box">
+                    <label>Phone Number</label>  <i title="Must fill the data" class="fas fa-asterisk"></i>
+                    <input type="tel" id="Phone" asp-for="Phone" required="">
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label> Birth Date</label> <i title="Must fill the data" class="fas fa-asterisk"></i>
+                    <input type="date" id="Date" asp-for="BirthDate" required="">
+                    <span asp-validation-for="BirthDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="column">
+                <div class="select-box ender">
+                    <select asp-for="Gender" required>
+                        <option hidden>Gender</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                    <span asp-validation-for="Gender" class="text-danger"></span>
+                    <i title="Must fill the data" class="fas fa-asterisk specialAsterisk"></i>
+                </div>
+            </div>
+            <div class="input-box address">
+
+                <div class="column">
+                    <div class="select-box national">
+                        <select asp-for="Nationality">
+                            <option hidden>Nationality</option>
+                            <option>Afghan</option>
+                            <option>Albanian</option>
+                            <option>Algerian</option>
+                            <option>American</option>
+                            <option>Andorran</option>
+                            <option>Angolan</option>
+                            <option>Anguillan</option>
+                            <option>Argentine</option>
+                            <option>Armenian</option>
+                            <option>Australian</option>
+                            <option>Austrian</option>
+                            <option>Bahraini</option>
+                            <option>Bangladeshi</option>
+                            <option>Belgian</option>
+                            <option>Bulgarian</option>
+                            <option>Brazilian</option>
+                            <option>Cambodian</option>
+                            <option>Canadian</option>
+                            <option>Chinese</option>
+                            <option>Colombian</option>
+                            <option>Cuban</option>
+                            <option>Chilean</option>
+                            <option>Egyptian</option>
+                            <option>Emirati</option>
+                            <option>Ethiopian</option>
+                            <option>Filipino</option>
+                            <option>French</option>
+                            <option>German</option>
+                            <option>Ghanaian</option>
+                            <option>Greek</option>
+                            <option>Indonesian</option>
+                            <option>Iranian</option>
+                            <option>Iraqi</option>
+                            <option>Icelandic</option>
+                            <option>Italian</option>
+                            <option>Irish</option>
+                            <option>Indian</option>
+                            <option>Jamaican</option>
+                            <option>Japanese</option>
+                            <option>Jordanian</option>
+                            <option>Kuwaiti</option>
+                            <option>Kenyan</option>
+                            <option>Kazakh</option>
+                            <option>Kosovan</option>
+                            <option>Lebanese</option>
+                            <option>Liberian</option>
+                            <option>Libyan</option>
+                            <option>Macanese</option>
+                            <option>Macedonian</option>
+                            <option>Malagasy</option>
+                            <option>Malawian</option>
+                            <option>Malaysian</option>
+                            <option>Maldivian</option>
+                            <option>Malian</option>
+                            <option>Mexican</option>
+                            <option>Moroccan</option>
+                            <option>Mozambican</option>
+                            <option>Namibian</option>
+                            <option>Nigerian</option>
+                            <option>North Korean</option>
+                            <option>Northern Irish</option>
+                            <option>Norwegian</option>
+                            <option>Pakistani</option>
+                            <option>Palestinian</option>
+                            <option>Panamanian</option>
+                            <option>Puerto Rican</option>
+                            <option>Qatari</option>
+                            <option>Romanian</option>
+                            <option>Russian</option>
+                            <option>Rwandan</option>
+                            <option>Saudi Arabian</option>
+                            <option>Scottish</option>
+                            <option>Serbian</option>
+                            <option>Singaporean</option>
+                            <option>Slovak</option>
+                            <option>Slovenian</option>
+                            <option>Somali</option>
+                            <option>South African</option>
+                            <option>South Korean</option>
+                            <option>South Sudanese</option>
+                            <option>Spanish</option>
+                            <option>Sudanese</option>
+                            <option>Swedish</option>
+                            <option>Syrian</option>
+                            <option>Tanzanian</option>
+                            <option>Tunisian</option>
+                            <option>Turkish</option>
+                            <option>Ukrainian</option>
+                            <option>Vietnamese</option>
+                            <option>Yemeni</option>
+                            <option>Zambian</option>
+                            <option>Zimbabwean</option>
+                        </select>
+                        <span class="fas fa-asterisk specialAsterisk"></span>
+                        <span asp-validation-for="Nationality" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="input-box">
+                        <input type="file" id="fileInput" class="custom-file-input" asp-for="Image" />
+                        <label for="fileInput" class="custom-file-label"><i title="Must fill the data" class="fas fa-asterisk" asp-for="Image" style="position: absolute;margin-left: 9.5rem;margin-top: 0.4rem;"></i></label>
+
+                    </div>
+                    <div class="input-box">
+                        <input type="file" id="filleInput" class="custom-fille-input" asp-for="National" />
+                        <label for="filleInput" class="custom-fille-label"><i title="Must fill the data" class="fas fa-asterisk" asp-for="National" style="position: absolute;margin-left: 5.6rem;margin-top: 0.4rem;"></i></label>
+
+                    </div>
+                </div>
+            </div>
+            </div>
+            <button>Submit</button>
+        </form>
+    </section>
+    <script>
+        document.getElementById('fileInput').addEventListener('change', function (e) {
+            var fileName = e.target.files[0].name;
+            var label = document.querySelector('.custom-file-label');
+            label.textContent = fileName;
+        });
+        document.getElementById('filleInput').addEventListener('change', function (e) {
+            var filleName = e.target.files[0].name;
+            var labell = document.querySelector('.custom-fille-label');
+            labell.textContent = filleName;
+        });</script>
+    @section Scripts {
+        <script src="~/lib/jquery/jquery.min.js"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    }
+</body>
+</html>
